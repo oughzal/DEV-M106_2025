@@ -3,5 +3,7 @@ CREATE TABLE test (
     name TEXT
 );
 
+test;
+
 
 

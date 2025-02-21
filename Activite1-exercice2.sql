@@ -38,6 +38,9 @@ CREATE Table Formation(
     codeSession INT REFERENCES Session(codeSession)
 );
 
+DESCRIBE Formation;
+show COLUMNS from formation;
+
 CREATE Table Specialite(
     codeSpecialite INT AUTO_INCREMENT PRIMARY KEY,
     nomSpec VARCHAR(45),
@@ -47,8 +50,11 @@ CREATE Table Specialite(
 drop TABLE catalogue;
 CREATE Table catalogue(
     codeSpec INT,
-    codeFormation int REFERENCES Formation(codeFormation),
+    codeFormation int REFERENCES Formation(codeFormation)
+    on Delete no action
+    on update CASCADE,
     Foreign Key (codeSpec) REFERENCES Specialite(codeSpecialite)
     on Delete CASCADE
-    on update CASCADE
+    on update CASCADE,
+    PRIMARY KEY(codeSpec,codeFormation)
 );

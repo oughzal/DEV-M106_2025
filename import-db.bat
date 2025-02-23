@@ -1,0 +1,1 @@
+mysql -u root -P 33066 -p < northwind.sql
